@@ -1,0 +1,125 @@
+/* ═══════════════════════════════════════════════
+   DIALECTA — History Page
+   ═══════════════════════════════════════════════ */
+
+.history-layout {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+}
+
+.page-sub {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+
+.history-table {
+  border: 1px solid rgba(0,0,0,0.1);
+  background: white;
+}
+
+.history-header,
+.history-row {
+  display: grid;
+  grid-template-columns: 3fr 1.2fr 0.8fr 1.2fr 0.6fr;
+  gap: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  align-items: center;
+}
+
+.history-header {
+  background: var(--ink);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.history-row {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.82rem;
+  transition: background 0.2s;
+}
+
+.history-row:last-child { border-bottom: none; }
+.history-row:hover { background: rgba(0,0,0,0.02); }
+
+.history-topic {
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.history-winner {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.winner-pro  { color: var(--pro); }
+.winner-con  { color: var(--con); }
+.winner-draw { color: var(--muted); }
+
+.history-rounds,
+.history-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.view-btn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 0.2rem 0.5rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.view-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.empty-history {
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 1px dashed rgba(0,0,0,0.15);
+  background: white;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-history p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.empty-history a {
+  color: var(--pro);
+}
+
+@media (max-width: 600px) {
+  .history-header,
+  .history-row {
+    grid-template-columns: 1fr;
+  }
+  .history-header span:not(:first-child) { display: none; }
+}

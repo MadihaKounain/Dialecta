@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}DIALECTA — Debate in Progress{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/debate.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="arena-layout">
+
+  <!-- PRO Sidebar -->
+  <aside class="agent-sidebar sidebar-pro">
+    <div class="agent-card pro">
+      <div class="agent-tag">Position · PRO</div>
+      <div class="agent-name">ADVOCATE</div>
+      <div class="agent-stance" id="pro-stance">In favor of the motion</div>
+      <div class="score-block">
+        <div class="score-label">Cumulative Score</div>
+        <div class="score-number" id="pro-score">0.0</div>
+        <div class="score-track">
+          <div class="score-fill pro-fill" id="pro-bar" style="width:0%"></div>
+        </div>
+        <div class="fallacy-tally" id="pro-fallacies">Fallacies detected: 0</div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="panel-head">Round Progress</div>
+      <div class="panel-body">
+        <div id="round-pips"></div>
+        <div class="current-phase-label" id="current-phase">—</div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="panel-head">Score Trend</div>
+      <div class="panel-body">
+        <canvas id="mini-chart" height="80"></canvas>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Center Feed -->
+  <section class="debate-center">
+    <div class="round-banner" id="round-banner">INITIALIZING DEBATE...</div>
+    <div class="debate-feed" id="debate-feed"></div>
+    <div id="scroll-anchor"></div>
+  </section>
+
+  <!-- CON Sidebar -->
+  <aside class="agent-sidebar sidebar-con">
+    <div class="agent-card con">
+      <div class="agent-tag">Position · CON</div>
+      <div class="agent-name">CHALLENGER</div>
+      <div class="agent-stance" id="con-stance">Against the motion</div>
+      <div class="score-block">
+        <div class="score-label">Cumulative Score</div>
+        <div class="score-number" id="con-score">0.0</div>
+        <div class="score-track">
+          <div class="score-fill con-fill" id="con-bar" style="width:0%"></div>
+        </div>
+        <div class="fallacy-tally" id="con-fallacies">Fallacies detected: 0</div>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="panel-head">Detected Fallacies</div>
+      <div class="panel-body" id="fallacy-log">
+        <p class="empty-note">None detected yet</p>
+      </div>
+    </div>
+
+    <div class="side-panel">
+      <div class="panel-head">Bias Tracker</div>
+      <div class="panel-body" id="bias-log">
+        <p class="empty-note">Monitoring...</p>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- Hidden data passed from JS -->
+<div id="page-data"
+  data-debate-id=""
+  data-phases=""
+  style="display:none"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/debate.js') }}"></script>
+{% endblock %}

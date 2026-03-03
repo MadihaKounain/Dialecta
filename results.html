@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}DIALECTA — Debate Results{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="results-layout">
+  <h2 class="results-headline">Debate Concluded</h2>
+  <p class="results-sub" id="results-topic"></p>
+
+  <!-- Winner Banner -->
+  <div class="winner-banner" id="winner-banner">
+    <div class="winner-loading">Loading results...</div>
+  </div>
+
+  <!-- Dashboard Grid -->
+  <div class="dashboard-grid">
+    <div class="dash-card">
+      <div class="dash-card-title">Argument Strength Over Rounds</div>
+      <canvas id="strength-chart" height="220"></canvas>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-title">Multi-Dimensional Analysis</div>
+      <canvas id="radar-chart" height="220"></canvas>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-title">Score Comparison</div>
+      <canvas id="bar-chart" height="220"></canvas>
+    </div>
+    <div class="dash-card">
+      <div class="dash-card-title">Fallacy &amp; Bias Summary</div>
+      <div id="fallacy-summary"></div>
+    </div>
+  </div>
+
+  <!-- Full Argument Log -->
+  <div class="arg-log-section">
+    <h3 class="section-title">Full Argument Log</h3>
+    <div id="arg-log"></div>
+  </div>
+
+  <div class="actions-row">
+    <a href="/" class="action-btn primary">↩ New Debate</a>
+    <a href="/history" class="action-btn secondary">📚 View History</a>
+  </div>
+</div>
+
+<div id="results-data" data-debate-id="" style="display:none"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/results.js') }}"></script>
+{% endblock %}

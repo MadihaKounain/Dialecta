@@ -1,0 +1,205 @@
+/* ═══════════════════════════════════════════════
+   DIALECTA — Index / Setup Page
+   ═══════════════════════════════════════════════ */
+
+#setup-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  padding: 3rem 2rem;
+}
+
+.setup-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.setup-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.setup-subhead {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Card */
+.setup-card {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 2.5rem 3rem;
+  width: 100%;
+  max-width: 680px;
+  border: 2px solid var(--border);
+  position: relative;
+}
+
+.setup-card::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid var(--gold);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.topic-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(245,240,232,0.25);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  padding: 0.4rem 0 0.6rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.topic-input:focus {
+  border-bottom-color: var(--gold);
+}
+
+.topic-input::placeholder {
+  color: rgba(245,240,232,0.25);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+/* Suggestion chips */
+.topic-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.chip {
+  background: rgba(245,240,232,0.07);
+  border: 1px solid rgba(245,240,232,0.15);
+  color: rgba(245,240,232,0.55);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Controls row */
+.controls-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.select-field {
+  width: 100%;
+  background: rgba(245,240,232,0.06);
+  border: 1px solid rgba(245,240,232,0.2);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.6rem 1rem;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(245,240,232,0.4)'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+}
+
+.select-field option { background: #1a1a22; }
+
+/* Start button */
+.start-btn {
+  width: 100%;
+  background: var(--gold);
+  color: var(--ink);
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.start-btn:hover { background: var(--gold-light); }
+.start-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-icon { font-size: 1.2rem; }
+
+/* Footer info */
+.setup-footer { margin-top: 1.5rem; }
+
+.setup-info-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245,240,232,0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: rgba(245,240,232,0.45);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.info-icon { font-size: 0.9rem; }
+
+@media (max-width: 600px) {
+  .setup-card { padding: 2rem 1.5rem; }
+  .controls-row { grid-template-columns: 1fr; }
+  .setup-info-row { flex-direction: column; align-items: flex-start; }
+}

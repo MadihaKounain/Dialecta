@@ -1,0 +1,283 @@
+/* ═══════════════════════════════════════════════
+   DIALECTA — Results / Analytics Page
+   ═══════════════════════════════════════════════ */
+
+.results-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.results-headline {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.results-sub {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+}
+
+/* Winner banner */
+.winner-banner {
+  border: 3px double var(--gold);
+  background: linear-gradient(135deg, #faf7ee, #f5f0da);
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.winner-banner::before {
+  content: '★';
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.04;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.winner-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.winner-name {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+}
+
+.winner-scores {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.winner-reason {
+  font-size: 0.88rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.winner-loading {
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.dash-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 1.5rem;
+}
+
+.dash-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+/* Fallacy summary */
+.fallacy-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fallacy-agent-box {
+  padding: 0.6rem;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.fab-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.fab-count {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.fab-label.pro, .fab-count.pro { color: var(--pro); }
+.fab-label.con, .fab-count.con { color: var(--con); }
+
+.fallacy-detail-item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.75rem;
+}
+
+.fallacy-detail-item:last-child { border-bottom: none; }
+
+.fdi-name {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--fallacy-color);
+  font-weight: 600;
+}
+
+.fdi-exp {
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 0.1rem;
+  line-height: 1.4;
+}
+
+.no-fallacies {
+  font-size: 0.8rem;
+  color: var(--strength-high);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+}
+
+/* Argument log */
+.arg-log-section {
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Compact log cards */
+.log-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  border-left: 4px solid;
+}
+
+.log-card.pro { border-left-color: var(--pro); }
+.log-card.con { border-left-color: var(--con); }
+
+.log-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.log-card.pro .log-card-head { background: var(--pro-light); }
+.log-card.con .log-card-head { background: var(--con-light); }
+
+.log-agent {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.log-card.pro .log-agent { color: var(--pro); }
+.log-card.con .log-agent { color: var(--con); }
+
+.log-score {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.log-card-body { padding: 0.8rem 1rem; }
+
+.log-claim {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.log-text {
+  font-size: 0.78rem;
+  color: #3a3a3a;
+  line-height: 1.6;
+}
+
+/* Actions */
+.actions-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.action-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 2rem;
+  text-decoration: none;
+  border: 2px solid;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.action-btn.primary {
+  background: var(--ink);
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.action-btn.primary:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.action-btn.secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.action-btn.secondary:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .results-headline { font-size: 2rem; }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}DIALECTA — AI Debate Arena{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<header class="masthead">
+  <a href="/" class="logo">DIALECTA<span>AI DEBATE ARENA</span></a>
+  <nav class="nav-links">
+    <a href="/" class="nav-link">New Debate</a>
+    <a href="/history" class="nav-link">History</a>
+  </nav>
+  <div class="header-status" id="header-status">READY</div>
+</header>
+
+<main class="main-content">
+  {% block content %}{% endblock %}
+</main>
+
+<script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

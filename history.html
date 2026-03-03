@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}DIALECTA — Debate History{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="history-layout">
+  <h2 class="page-title">Debate Archive</h2>
+  <p class="page-sub">All debates are stored locally as JSON — no database required.</p>
+
+  {% if history %}
+  <div class="history-table">
+    <div class="history-header">
+      <span>Topic</span>
+      <span>Winner</span>
+      <span>Rounds</span>
+      <span>Date</span>
+      <span>Action</span>
+    </div>
+    {% for item in history %}
+    <div class="history-row">
+      <span class="history-topic">{{ item.topic }}</span>
+      <span class="history-winner
+        {% if 'Pro' in item.winner %}winner-pro
+        {% elif 'Con' in item.winner %}winner-con
+        {% else %}winner-draw{% endif %}">
+        {{ item.winner }}
+      </span>
+      <span class="history-rounds">{{ item.rounds }} rounds</span>
+      <span class="history-date">{{ item.date }}</span>
+      <span>
+        <a href="/results?id={{ item.id }}" class="view-btn">View →</a>
+      </span>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-history">
+    <div class="empty-icon">📜</div>
+    <p>No debates yet. <a href="/">Start your first debate →</a></p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

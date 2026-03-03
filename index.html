@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}DIALECTA — Start a Debate{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div id="setup-panel">
+  <div class="setup-hero">
+    <h1 class="setup-headline">The Arena of<br>Reasoned Discourse</h1>
+    <p class="setup-subhead">Two AI agents. One truth. Zero mercy.</p>
+  </div>
+
+  <div class="setup-card">
+    <div class="form-group">
+      <label class="form-label">Debate Topic or Question</label>
+      <input type="text" class="topic-input" id="topic-input"
+        placeholder="e.g. AI will eliminate more jobs than it creates..."
+        maxlength="200" autocomplete="off">
+      <div class="topic-suggestions">
+        <span class="chip" data-topic="AI will eliminate more jobs than it creates">AI &amp; Employment</span>
+        <span class="chip" data-topic="Social media does more harm than good to democracy">Social Media &amp; Democracy</span>
+        <span class="chip" data-topic="Universal Basic Income should be implemented globally">Universal Basic Income</span>
+        <span class="chip" data-topic="Nuclear energy is essential for combating climate change">Nuclear Energy</span>
+        <span class="chip" data-topic="Standardized testing is an unfair measure of intelligence">Standardized Testing</span>
+        <span class="chip" data-topic="Cryptocurrency will replace traditional banking">Crypto vs Banking</span>
+        <span class="chip" data-topic="Space exploration funding should be increased despite poverty on Earth">Space vs Earth</span>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <div class="form-group">
+        <label class="form-label">Debate Tone</label>
+        <select class="select-field" id="tone-select">
+          <option value="academic">Academic &amp; Scholarly</option>
+          <option value="formal">Formal &amp; Structured</option>
+          <option value="aggressive">Aggressive &amp; Combative</option>
+          <option value="socratic">Socratic &amp; Questioning</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Number of Rounds</label>
+        <select class="select-field" id="rounds-select">
+          <option value="2">2 Rounds — Quick</option>
+          <option value="3" selected>3 Rounds — Standard</option>
+          <option value="4">4 Rounds — Extended</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="start-btn" id="start-btn">
+      <span class="btn-icon">⚔</span> Commence the Debate
+    </button>
+
+    <div class="setup-footer">
+      <div class="setup-info-row">
+        <div class="info-item">
+          <span class="info-icon">🎭</span>
+          <span>Two autonomous AI agents</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🔍</span>
+          <span>Live fallacy &amp; bias detection</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📊</span>
+          <span>Full analytics dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
